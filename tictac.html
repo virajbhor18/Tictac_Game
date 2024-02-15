@@ -1,0 +1,81 @@
+<html>
+    <head>
+<style>
+    .grid-container
+    {
+        display: grid;
+        background-color:firebrick;
+        grid-template-columns: auto auto auto;
+        width: 400px;
+        height: 400px; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .grid-item
+    {
+
+margin: 10px;
+padding: 2px;
+width : 100px;
+height : 100px;
+
+    }
+ button 
+{
+ font-size: 10px;
+width : 100px;
+height : 100px;
+background-color:antiquewhite;  
+}
+
+</style>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="grid-item"><button onclick="changesymbol(1)" id="1"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(2)" id="2"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(3)" id="3"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(4)" id="4"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(5)" id="5"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(6)" id="6"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(7)" id="7"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(8)" id="8"></button></div>
+            <div class="grid-item"><button onclick="changesymbol(9)" id="9"></button></div>
+         
+
+        </div>
+<script>
+    var symbol= "X";
+    function changesymbol(a)
+    {   document.getElementById(a).style.fontSize="50px";
+        document.getElementById(a).style.transform = "translate(2.5)";
+        document.getElementById(a).style.transition="all 1s"; 
+        document.getElementById(a).innerHTML = symbol;   
+        if(symbol=="X")
+        {
+            symbol ="O";
+        }
+        else{
+            document.getElementById(a).style.transform = "rotate(360deg)";
+        document.getElementById(a).style.transition="all 1s"; 
+            symbol="X";
+        }
+        winnercondition();
+    }
+
+    function winnercondition()
+    {
+        if(document.getElementById(1).innerHTML == "X" &  document.getElementById(2).innerHTML=="X" &  document.getElementById(3).innerHTML=="X" | document.getElementById(4).innerHTML == "X" &  document.getElementById(5).innerHTML=="X" &  document.getElementById(6).innerHTML=="X" | document.getElementById(6).innerHTML == "X" &  document.getElementById(7).innerHTML=="X" &  document.getElementById(8).innerHTML=="X" | document.getElementById(1).innerHTML == "O" &  document.getElementById(2).innerHTML=="O" &  document.getElementById(3).innerHTML=="O" | document.getElementById(4).innerHTML == "O" &  document.getElementById(5).innerHTML=="O" &  document.getElementById(6).innerHTML=="O" | document.getElementById(7).innerHTML == "O" &  document.getElementById(8).innerHTML=="O" &  document.getElementById(9).innerHTML=="O" | document.getElementById(1).innerHTML == "X" &  document.getElementById(4).innerHTML=="X" &  document.getElementById(7).innerHTML=="X" | document.getElementById(2).innerHTML == "X" &  document.getElementById(5).innerHTML=="X" &  document.getElementById(8).innerHTML=="X" | document.getElementById(3).innerHTML == "X" &  document.getElementById(6).innerHTML=="X" &  document.getElementById(9).innerHTML=="X" | document.getElementById(1).innerHTML == "O" &  document.getElementById(4).innerHTML=="O" &  document.getElementById(7).innerHTML=="O" | document.getElementById(2).innerHTML == "O" &  document.getElementById(5).innerHTML=="O" &  document.getElementById(8).innerHTML=="O" | document.getElementById(3).innerHTML == "O" &  document.getElementById(6).innerHTML=="O" &  document.getElementById(9).innerHTML=="O")
+        {
+            if(symbol =="X")
+            {
+            alert("Player 2 is winner !");
+            }
+            else{
+            alert("Player 1 is winner !");
+            }
+        }
+    }
+</script>
+    </body>
+</html>
